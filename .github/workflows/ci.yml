@@ -21,20 +21,29 @@ jobs:
           java-version: '17'
           cache: 'maven'
 
-      - name: Set up Chrome & ChromeDriver
+      - name: Set up Chrome
         uses: browser-actions/setup-chrome@v1
         with:
           chrome-version: latest
 
-      - name: Verify ChromeDriver Installation
+      - name: Install ChromeDriver
+        run: |
+          sudo apt update
+          sudo apt install -y chromium-chromedriver
+
+      - name: Verify Chrome & ChromeDriver Installation
         run: |
           google-chrome --version
           chromedriver --version
+
+      - name: Set ChromeDriver Path
+        run: echo "WEBDRIVER_PATH=/usr/bin/chromedriver" >> $GITHUB_ENV
 
       - name: Run Selenium Tests
         run: mvn test
         env:
           DISPLAY: ":99.0"
+          WEBDRIVER_PATH: ${{ env.WEBDRIVER_PATH }}
 
       - name: Upload test reports
         if: always()
