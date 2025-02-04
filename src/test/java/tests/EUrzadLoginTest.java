@@ -1,18 +1,17 @@
 package tests;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.BasePage;
 import pages.MainPage;
 
 public class EUrzadLoginTest extends BaseTest {
-    String url = "https://www.podatki.gov.pl/";
 
     @Test
     void clickOnEUrzad() {
+        BasePage basePage = new BasePage(driver);
         MainPage mainPage = new MainPage(driver);
-        driver.get(url);
-        String actualUrl = driver.getCurrentUrl();
-        Assert.assertEquals(actualUrl, url, "Url doesn't match!");
+
+        basePage.open();
 
         mainPage.clickOnEUrzad();
 
