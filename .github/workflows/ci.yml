@@ -1,4 +1,4 @@
-name: Automated Tests Pipeline
+name: Java Selenium Tests
 
 on:
   push:
@@ -21,24 +21,20 @@ jobs:
           java-version: '17'
           cache: 'maven'
 
-      - name: Set up Chrome
-        run: |
-          sudo apt update
-          sudo apt install -y google-chrome-stable
-          google-chrome --version
+      - name: Set up Chrome & ChromeDriver
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: latest
 
-      - name: Set up ChromeDriver
+      - name: Verify ChromeDriver Installation
         run: |
-          CHROME_VERSION=$(google-chrome --version | grep -oP '[0-9.]+' | head -1)
-          DRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION)
-          wget -N https://chromedriver.storage.googleapis.com/$DRIVER_VERSION/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
-          chmod +x /usr/local/bin/chromedriver
+          google-chrome --version
           chromedriver --version
 
       - name: Run Selenium Tests
         run: mvn test
+        env:
+          DISPLAY: ":99.0"
 
       - name: Upload test reports
         if: always()
