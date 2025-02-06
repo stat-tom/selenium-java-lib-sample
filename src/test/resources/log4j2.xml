@@ -1,0 +1,6 @@
+<Configuration>
+    <Loggers>
+        <Logger name="io.github.bonigarcia.wdm" level="ERROR"/>
+        <Logger name="org.apache.hc.client5.http" level="ERROR"/>
+    </Loggers>
+</Configuration>
