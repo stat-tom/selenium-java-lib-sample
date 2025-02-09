@@ -1,8 +1,9 @@
-package tests;
+package tests.US;
 
 import org.testng.annotations.Test;
 import pages.BasePage;
-import pages.MainPage;
+import pages.US.MainPage;
+import tests.BaseTest;
 
 public class EUrzadLoginTest extends BaseTest {
 

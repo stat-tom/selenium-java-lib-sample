@@ -1,4 +1,4 @@
-package pages;
+package pages.US;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -9,7 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
-import tests.LoginGovPlTest;
+import pages.BasePage;
+import tests.US.LoginGovPlTest;
 
 import java.time.Duration;
 

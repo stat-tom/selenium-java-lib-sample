@@ -6,7 +6,7 @@ import org.testng.Assert;
 
 public class BasePage {
     protected WebDriver driver;
-    private String url = "https://www.podatki.gov.pl/";
+    private String url = "https://www.pzu.pl/"; //"https://www.podatki.gov.pl/"
 
     public BasePage(WebDriver driver) {
         this.driver = driver;

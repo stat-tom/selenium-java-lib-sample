@@ -1,7 +1,10 @@
-package tests;
+package tests.US;
 
 import org.testng.annotations.Test;
 import pages.*;
+import pages.US.LoginPage;
+import pages.US.MainPage;
+import tests.BaseTest;
 
 public class LoginGovPlTest extends BaseTest {
 

@@ -1,7 +1,11 @@
-package tests;
+package tests.US;
 
 import org.testng.annotations.Test;
 import pages.*;
+import pages.US.LoginGovPlPage;
+import pages.US.LoginPage;
+import pages.US.MainPage;
+import tests.BaseTest;
 
 public class ProfilZaufanyTest extends BaseTest {
 
