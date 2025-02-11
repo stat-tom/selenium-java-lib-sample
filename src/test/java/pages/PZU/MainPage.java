@@ -15,18 +15,12 @@ public class MainPage extends BasePage {
     }
 
     private WebElement getCookies() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        // Locate shadow host
         WebElement shadowHost = driver.findElement(By.id("cmpwrapper"));
-        // Get shadow root using Selenium's getShadowRoot() method (no casting needed)
         SearchContext shadowRoot = shadowHost.getShadowRoot();
-        // Wait for the element inside the shadow root
         WebElement element = wait.until(driver -> {
             WebElement btn = ((org.openqa.selenium.SearchContext) shadowRoot).findElement(By.cssSelector("a.cmptxt_btn_yes"));
             return (btn.isDisplayed() && btn.isEnabled()) ? btn : null;
         });
-        // Assert element is found
         Assert.assertNotNull(element, "Element not found!");
         return element;
     }
