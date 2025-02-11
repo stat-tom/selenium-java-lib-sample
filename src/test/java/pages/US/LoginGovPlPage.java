@@ -9,12 +9,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import pages.BasePage;
-import tests.US.LoginGovPlTest;
+import tests.USLoginGovPlTest;
 
 import java.time.Duration;
 
 public class LoginGovPlPage extends BasePage {
-    private static final Logger logger = LoggerFactory.getLogger(LoginGovPlTest.class);
+    private static final Logger logger = LoggerFactory.getLogger(USLoginGovPlTest.class);
     protected WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     public LoginGovPlPage(WebDriver driver) {

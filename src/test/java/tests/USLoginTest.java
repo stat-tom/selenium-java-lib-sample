@@ -1,18 +1,17 @@
-package tests.US;
+package tests;
 
 import org.testng.annotations.Test;
 import pages.BasePage;
 import pages.US.MainPage;
-import tests.BaseTest;
 
-public class EUrzadLoginTest extends BaseTest {
+public class USLoginTest extends BaseTest {
 
     @Test
     void clickOnEUrzad() {
         BasePage basePage = new BasePage(driver);
         MainPage mainPage = new MainPage(driver);
 
-        basePage.open();
+        basePage.open("https://www.podatki.gov.pl/");
 
         mainPage.clickOnEUrzad();
 
