@@ -1,0 +1,25 @@
+name: OWASP ZAP Scan - Web
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+   security-scan:
+     runs-on: ubuntu-latest
+     container:
+      image: softwaresecurityproject/zap-stable
+      options: --user root
+
+   steps:
+     - name: Checkout code
+       uses: actions/checkout@v4
+
+     - name: Set up permissions
+       run: chmod -R 777 /__w
+
+     - name: Create Working Directory
+       run: mkdir -p /zap/wrk
+
+     - name: Run ZAP Baseline Scan
+       run: zap-baseline.py -t https://practicesoftwaretesting.com/
